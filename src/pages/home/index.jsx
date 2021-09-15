@@ -5,6 +5,7 @@ import {connect} from 'react-redux'
 import '../../assets/css/index.less'
 import nftConfig from '../../config/nft'
 import NftCard from "../../components/nft-card";
+const maxCount = nftConfig.reduce((max,item1) => item1.count > max ? item1.count : max, 0)
 class Home extends React.Component {
   state = {
     showNftName: 'helmet-duck',
@@ -12,9 +13,7 @@ class Home extends React.Component {
   }
   onChange(){
     const showIndex = this.state.showIndex + 1
-    console.log(showIndex)
     const showNftName = nftConfig[showIndex % nftConfig.length].name
-    console.log(showNftName, 'showNftName')
     this.setState({
       showIndex,
       showNftName
@@ -25,8 +24,7 @@ class Home extends React.Component {
      return (
        <div className='home-page' style={{ background: this.state.showNftName === 'helmet-duck' ? '#C09DA7' : this.state.showNftName === 'pixelpuzzle' ? '#1A1A1D' : 'none'}}>
          <div className='nft-view' onClick={this.onChange.bind(this)}>
-           <NftCard nftData={showNft} />
-           {/* <button onClick={this.onChange.bind(this)}>change</button> */}
+           <NftCard nftData={showNft} maxCount={maxCount}/>
          </div>
        </div>
      )
