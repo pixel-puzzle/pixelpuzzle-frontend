@@ -14,6 +14,7 @@ class Home extends React.Component {
     const showIndex = this.state.showIndex + 1
     console.log(showIndex)
     const showNftName = nftConfig[showIndex % nftConfig.length].name
+    console.log(showNftName, 'showNftName')
     this.setState({
       showIndex,
       showNftName
@@ -22,10 +23,10 @@ class Home extends React.Component {
   render() {
    const showNft = nftConfig.find(item => item.name === this.state.showNftName)
      return (
-       <div className='home-page'>
-         <div className='nft-view'>
-           <NftCard nftData={showNft}/>
-           <button onClick={this.onChange.bind(this)}>change</button>
+       <div className='home-page' style={{ background: this.state.showNftName === 'helmet-duck' ? '#C09DA7' : this.state.showNftName === 'pixelpuzzle' ? '#1A1A1D' : 'none'}}>
+         <div className='nft-view' onClick={this.onChange.bind(this)}>
+           <NftCard nftData={showNft} />
+           {/* <button onClick={this.onChange.bind(this)}>change</button> */}
          </div>
        </div>
      )
