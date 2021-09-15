@@ -22,7 +22,7 @@ class Home extends React.Component {
   render() {
    const showNft = nftConfig.find(item => item.name === this.state.showNftName)
      return (
-       <div className='home-page' style={{ background: this.state.showNftName === 'helmet-duck' ? '#C09DA7' : this.state.showNftName === 'pixelpuzzle' ? '#1A1A1D' : 'none'}}>
+       <div className='home-page' style={{ background: showNft.bgColor}}>
          <div className='nft-view' onClick={this.onChange.bind(this)}>
            <NftCard nftData={showNft} maxCount={maxCount}/>
          </div>
