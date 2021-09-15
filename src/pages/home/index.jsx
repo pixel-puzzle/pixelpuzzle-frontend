@@ -6,13 +6,26 @@ import '../../assets/css/index.less'
 import nftConfig from '../../config/nft'
 import NftCard from "../../components/nft-card";
 class Home extends React.Component {
+  state = {
+    showNftName: 'helmet-duck',
+    showIndex: 0
+  }
+  onChange(){
+    const showIndex = this.state.showIndex + 1
+    console.log(showIndex)
+    const showNftName = nftConfig[showIndex % nftConfig.length].name
+    this.setState({
+      showIndex,
+      showNftName
+    })
+  }
   render() {
+   const showNft = nftConfig.find(item => item.name === this.state.showNftName)
      return (
        <div className='home-page'>
          <div className='nft-view'>
-           {
-             nftConfig.map(item => <NftCard key={item.name} nftData={item}/>)
-           }
+           <NftCard nftData={showNft}/>
+           <button onClick={this.onChange.bind(this)}>change</button>
          </div>
        </div>
      )

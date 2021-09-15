@@ -4,7 +4,7 @@ import cx from 'classnames'
 const createItems = (count, name) => {
   const items = []
   for (let i = 0; i < count; i++) {
-    items.push(<div key={name + i} />)
+    items.push(<div key={i} />)
   }
   return items
 }
