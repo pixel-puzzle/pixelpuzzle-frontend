@@ -1,0 +1,66 @@
+.header{
+  position: absolute;
+  top: -124px;
+  left: 0;
+  height: 124px;
+  width: 100%;
+  transition: all 500ms;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 2;
+  padding: 0 100px;
+  &.show{
+    top: 0;
+  }
+  .logo{
+    width: 231px;
+    height: 36px;
+    cursor: pointer;
+  }
+  .connect-wall{
+    width: 125px;
+    height: 35px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../../assets/image/button-bg.png");
+    background-size: 100% 100%;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    &:hover{
+      opacity: 0.9;
+    }
+  }
+}
+@media (max-width: 1024px) and (min-width: 512px){
+  .header{
+    padding: 0 20px;
+    top: 66px;
+    height: 66px;
+    .logo{
+      width: 173.25px;
+      height: 27px;
+      cursor: pointer;
+    }
+  }
+}
+@media (max-width: 512px){
+  .header{
+    padding: 0 20px;
+    top: 66px;
+    height: 66px;
+    .logo{
+      width: 115.5px;
+      height: 18px;
+      cursor: pointer;
+    }
+    .connect-wall{
+      width: 100px;
+      height: 28px;
+      font-size: 12px;
+    }
+  }
+}
