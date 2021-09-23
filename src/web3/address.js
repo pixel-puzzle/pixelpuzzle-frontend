@@ -18,3 +18,13 @@ export const getRpcUrl = chainId => {
   }
   return RPC_URLS[chainId]
 }
+
+export const getScanAddress = (chainId, address) => {
+  const SCAN_ADDRESS = {
+    [ChainId.BSC]: 'https://bscscan.com/address/' + address,
+  }
+  return SCAN_ADDRESS[chainId]
+}
+
+
+
