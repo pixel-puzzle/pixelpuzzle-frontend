@@ -27,14 +27,16 @@ export default function ConnectWallet(props) {
   return (
     <div className="connect-wallet">
       <div className="connect-wallet-box">
-        <div className="wallet-popup-close" onClick={onClose}/>
+        <div className="wallet-popup-close" onClick={onClose}>
+          <span className="wallet-popup-close-x"/>
+        </div>
         {
           active ? (
             <>
               <h2>Your wallet</h2>
               <h2>{account}</h2>
               <div className="wallet-address-menu">
-                <a href={getScanAddress(chainId, account)} target="_blank" rel="noreferrer">View on BscScan <img src={ViewIcon} alt=""/></a>
+                <a href={getScanAddress(chainId, account)} target="_blank" rel="noreferrer"><span>View on BscScan</span> <img src={ViewIcon} alt=""/></a>
                 <CopyToClipboard
                   text={account}
                   onCopy={() => {

@@ -1,6 +1,6 @@
 .header{
   position: absolute;
-  top: -124px;
+  top: 0;
   left: 0;
   height: 124px;
   width: 100%;
@@ -10,9 +10,6 @@
   justify-content: space-between;
   z-index: 2;
   padding: 0 100px;
-  &.show{
-    top: 0;
-  }
   .logo{
     width: 231px;
     height: 36px;
@@ -38,7 +35,6 @@
 @media (max-width: 1024px) and (min-width: 512px){
   .header{
     padding: 0 20px;
-    top: -66px;
     height: 66px;
     .logo{
       width: 173.25px;
@@ -50,7 +46,6 @@
 @media (max-width: 512px){
   .header{
     padding: 0 20px;
-    top: -66px;
     height: 66px;
     .logo{
       width: 115.5px;
