@@ -1,8 +1,8 @@
-import React, {useMemo} from "react";
+import React from "react";
 import './index.less'
 import MetamaskIcon from '../../assets/image/metamask.png'
 import ViewIcon from '../../assets/image/svg/view.svg'
-import CopyIcon from '../../assets/image/svg/copy.svg'
+import CopyIcon from '../../assets/image/svg/copy.png'
 import ButtonRedIcon from '../../assets/image/button_red.png'
 import {injected, useConnectWallet} from "../../web3/connectors";
 import {useWeb3React} from "@web3-react/core";
