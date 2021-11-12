@@ -123,29 +123,21 @@ export const useConnectWallet = () => {
   const {activate, deactivate, active} = useWeb3React()
   const connectWallet = useCallback((connector, chainId) => changeNetwork(chainId).then(() => activate(connector, undefined, true)
     .then(e => {
-      // 隐藏切换网络弹窗
       store.getState().index.showSwitchWallet && store.dispatch(changeShowSwitchWallet({showSwitchWallet: false}))
       store.getState().index.showConnectWallet && store.dispatch(changeShowConnectWall({showConnectWallet: false}))
       if (window.ethereum && window.ethereum.on) {
-        // 监听钱包事件
-        console.log('注册事件')
         // const { ethereum } = window
         window.ethereum.on('accountsChanged', accounts => {
           if (accounts.length === 0) {
-            // 无账号，则代表锁定了,主动断开
             deactivate()
           }
-          // 账号改了，刷新网页
-          // window.location.reload()
         })
 
         window.ethereum.on('disconnect', () => {
-          // 断开连接
           deactivate()
         })
 
         window.ethereum.on('close', () => {
-          // 断开连接
           deactivate()
         })
 
@@ -157,14 +149,11 @@ export const useConnectWallet = () => {
     .catch(error => {
       switch (true) {
         case error instanceof UnsupportedChainIdError:
-          console.log('链错了')
           store.dispatch(changeShowSwitchWallet({showSwitchWallet: true}))
           break
         case error instanceof NoEthereumProviderError:
-          console.log('不是钱包环境')
           break
         case error instanceof UserRejectedRequestError:
-          console.log('用户拒绝连接钱包')
           store.dispatch(changeShowConnectWall({showConnectWallet: true}))
           break
         default:
@@ -175,7 +164,6 @@ export const useConnectWallet = () => {
   useMemo(() => {
     !active && connectWallet(injected)
     window.ethereum && window.ethereum.on('networkChanged', () => {
-      // 切换网络后，尝试连接
       !active && connectWallet(injected)
     })
   }, [])

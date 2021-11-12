@@ -1,0 +1,56 @@
+@keyframes neon-light {
+  0%{
+    text-shadow: 0 0 0 #E610FF;
+    color: #c28faf;
+  }
+  25% {
+    color: #78bcbe;
+    text-shadow: 0 0 14px #E610FF;
+  }
+  50% {
+    color: #A3FCFF;
+    text-shadow: 0 0 28px #E610FF;
+  }
+  75% {
+    color: #B70030;
+    text-shadow: 0 0 28px #E610FF;
+  }
+  100% {
+    color: #2A191B;
+    text-shadow: 0 0 28px #E610FF;
+  }
+}
+.justine-dusk {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../../../assets/image/home/bg3.png");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+
+  .banner-light {
+    width: 531px;
+    height: 88px;
+    background-image: url("../../../assets/image/home/banner_light.png");
+    background-size: 100% 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 56px;
+    font-family: FutureMillenniumBlack;
+    color: #A3FCFF;
+    line-height: 65px;
+    animation: neon-light 4s ease-out infinite;
+  }
+
+  img {
+    width: 80vh;
+    height: 80vh;
+    max-width: 80vh;
+    max-height: 80vh;
+  }
+}
